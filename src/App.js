@@ -1,35 +1,31 @@
-// import Header from './component/header';
-import Main from './component/main';
+import React , {useState} from 'react';
+import { Routes, Route } from 'react-router-dom';
 import "./assets/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React , {useState} from 'react';
 import Navbar1 from './component/navbar';
 import Alert from './component/alert';
+import Main from './component/main';
+import Aboutus from "./component/Aboutus";
 
 function App() {
+  const newAlerts = [];
   const [alert , setAlert] = useState([]); 
   const showAlert =(message , type)=>{
+    // for (let i = 1; i <= 1; i++) {
+      // const delay = i * 10;
       setAlert (prev => [...prev , {
           msg:message,
           type:type
       }])
       setTimeout(() =>{
-         setAlert([]); 
+        // showAlert.push(`Alert ${i}`);
+        setAlert(newAlerts);
       }, 3000);
+    // }
   }
-  const handleSetCity = (e) => {
-    if(timer) clearTimeout(timer)
-    setCity(e.target.value)
-    timer = setTimeout(() => {
-      console.log(city)
-      // handleFetchWeather()
-    }, 2000)
-  }
-
 const alertList = alert.map(item => {
   return <Alert className='d-flex justify-content-center align-items-center border' alert={item}/>
 })
-  
   const [mode, setMode] = useState('dark');
   const toggleMode = ()=>{
     if(mode === 'light'){
@@ -44,14 +40,16 @@ const alertList = alert.map(item => {
     }
   }
   return (
-    
+    <>
     <div className="App">
-      {/* <Header /> */}
-      <Navbar1 title="TextUtils" mode={mode} toggleMode={toggleMode} /> 
-      <div className='alert-wrapper '>{alertList}</div>
-      <Main mode={mode} toggleMode={toggleMode} setAlert={showAlert}/>
-      
+    <Navbar1 title="TextUtils" mode={mode} toggleMode={toggleMode} /> 
+    <Routes>
+      <Route path='/home'  element={<Main mode={mode} toggleMode={toggleMode} setAlert={showAlert} />}/>
+      <Route path='/Aboutus' element={<Aboutus mode={mode} toggleMode={toggleMode} setAlert={showAlert} />}/>
+    </Routes>     
+      {/* <Main mode={mode} toggleMode={toggleMode} setAlert={showAlert}/> */}
     </div>
+    </>
   );
 }
 export default App;

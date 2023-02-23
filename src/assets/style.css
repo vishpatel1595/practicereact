@@ -1,0 +1,107 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+  
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+.hero-section {
+  height: calc(100vh - 9vh);
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.hero-title {
+  position: absolute;
+  margin: 0;
+  right: 0;
+}
+
+.cards-wrapper {
+  padding: 120px 16px;
+  display: flex;
+  border: 1px solid;
+}
+
+.card {
+  height: 100% !important;
+}
+
+/* media screen */
+
+@media (max-width: 991px) {
+  .hero-section {
+    height: 100%;
+  }
+  .cards-wrapper {
+    padding: 60px 16px;
+  }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 425px) {
+}
+.alert-wrapper {
+display: flex;
+justify-content: center;
+align-items: center;
+/* width: fit-content; */
+position: fixed;
+z-index: 999;
+top: 6%;
+right: 0;
+/* width: 100%;
+height: 100%; */
+display: flex;
+  flex-direction: column;
+}
+.alert-content {
+  position: static;
+  
+  right: 0;
+  top: 40px;
+  padding: 20px;
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: #0d6efd;
+ 
+}
+
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
